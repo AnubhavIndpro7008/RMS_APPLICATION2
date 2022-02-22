@@ -1,0 +1,22 @@
+﻿
+
+@model WebApplication2.Models.reg_Page
+
+@{
+    ViewBag.Title = "LoggedIn";
+}
+@{
+    Layout = null;
+    if (Session["Username"] == null)
+    {
+        Response.Redirect("~/Account/Login");
+    }
+}
+    @if (Session["Email"] != null)
+    {
+        <h4>Hello @Session["F_name"].ToString()</h4>
+    }
+
+    <div>
+        @Html.ActionLink("List of Register User", "Index", "Account")
+    </div>

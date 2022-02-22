@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "LoggedIn";
+}
+@{ 
+    Layout = null;
+    if(Session["Username"] == null)
+    {
+        Response.Redirect("~/Account/Login");
+    }
+}
+
+@if (Session["Username"] != null)
+{
+    <h4>Hello @Session["Username"].ToString()</h4>
+}
+
+<div>
+    @Html.ActionLink("Click Me", "Index", "Account")
+</div>
